@@ -21,21 +21,21 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Peter
  */
-public class Category extends javax.swing.JFrame {
-
-    Connection con;
-    PreparedStatement pst;
-
+public class Brands extends javax.swing.JFrame {
+Connection con;
+PreparedStatement pst;
     /**
      * Creates new form Category
      */
-    public Category() {
+    public Brands() {
         initComponents();
-        con = configDB.ConnectDb();
+         con = configDB.ConnectDb();
         load_list();
     }
 
-    //Connection con;
+
+    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -45,27 +45,27 @@ public class Category extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel6 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        txtCategory = new javax.swing.JTextField();
+        txtBrand = new javax.swing.JTextField();
         cmbStatus = new javax.swing.JComboBox<>();
         btnSave = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         CategoryTable = new javax.swing.JTable();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        lblExit = new javax.swing.JLabel();
-        btnDelete1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Category", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel6.setText("SKISOFT POS");
 
-        jLabel7.setText("Category");
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Brand", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
+
+        jLabel7.setText("Brand Name");
 
         jLabel8.setText("Status");
 
@@ -96,41 +96,42 @@ public class Category extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(40, 40, 40)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtBrand)
+                            .addComponent(cmbStatus, 0, 116, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(btnSave)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnUpdate)
                         .addGap(18, 18, 18)
-                        .addComponent(btnDelete))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(txtCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(cmbStatus, 0, 105, Short.MAX_VALUE)))
-                .addGap(67, 67, 67))
+                        .addComponent(btnDelete)))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(24, 24, 24)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(txtCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtBrand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(cmbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(40, 40, 40)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSave)
                     .addComponent(btnUpdate)
                     .addComponent(btnDelete))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
 
         CategoryTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -138,7 +139,7 @@ public class Category extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Category", "Status"
+                "ID", "Brand", "Status"
             }
         ) {
             Class[] types = new Class [] {
@@ -156,78 +157,34 @@ public class Category extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(CategoryTable);
 
-        jPanel3.setBackground(new java.awt.Color(3, 120, 178));
-
-        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Category");
-
-        lblExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Apps-Dialog.png"))); // NOI18N
-        lblExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblExit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblExitMouseClicked(evt);
-            }
-        });
-
-        btnDelete1.setText("Delete");
-        btnDelete1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDelete1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(113, 113, 113)
-                .addComponent(lblExit, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 214, Short.MAX_VALUE)
-                .addComponent(btnDelete1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addComponent(lblExit, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(btnDelete1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(378, 378, 378)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32))
+                .addGap(23, 23, 23)
+                .addComponent(jLabel6)
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         pack();
@@ -237,7 +194,7 @@ public class Category extends javax.swing.JFrame {
     private void load_list() {
         try {
             int c;
-            pst = con.prepareStatement("SELECT * FROM Category");
+            pst = con.prepareStatement("SELECT * FROM Brand");
             ResultSet rs = pst.executeQuery();
             ResultSetMetaData rsd = rs.getMetaData();
             c = rsd.getColumnCount();
@@ -247,14 +204,14 @@ public class Category extends javax.swing.JFrame {
                 Vector v2 = new Vector();
                 for (int i = 1; i <= c; i++) {
                     v2.add(rs.getString("Id"));
-                    v2.add(rs.getString("Category"));
+                    v2.add(rs.getString("Brand"));
                     v2.add(rs.getString("Status"));
                 }
                 d.addRow(v2);
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(Category.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Brands.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -262,24 +219,24 @@ public class Category extends javax.swing.JFrame {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
-        String categoryname = txtCategory.getText();
+        String categoryname = txtBrand.getText();
         String status = cmbStatus.getSelectedItem().toString();
 
         try {
-
-            pst = con.prepareStatement("INSERT INTO Category (Category,Status)VALUES(?,?)");
+     
+            pst = con.prepareStatement("INSERT INTO Brand (Brand,Status)VALUES(?,?)");
             pst.setString(1, categoryname);
             pst.setString(2, status);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null, "Record Succesffully added");
             load_list();
-            txtCategory.setText("");
+            txtBrand.setText("");
             cmbStatus.setSelectedIndex(-1);
 
-            txtCategory.requestFocus();
+            txtBrand.requestFocus();
 
         } catch (SQLException ex) {
-            Logger.getLogger(Category.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Brands.class.getName()).log(Level.SEVERE, null, ex);
         }
 
 
@@ -289,7 +246,7 @@ public class Category extends javax.swing.JFrame {
         // TODO add your handling code here:
         DefaultTableModel d1 = (DefaultTableModel) CategoryTable.getModel();
         int selectedIndex = CategoryTable.getSelectedRow();
-        txtCategory.setText(d1.getValueAt(selectedIndex, 1).toString());
+        txtBrand.setText(d1.getValueAt(selectedIndex, 1).toString());
         cmbStatus.setSelectedItem(d1.getValueAt(selectedIndex, 2).toString());
 
     }//GEN-LAST:event_CategoryTableMouseClicked
@@ -299,24 +256,24 @@ public class Category extends javax.swing.JFrame {
         DefaultTableModel d1 = (DefaultTableModel) CategoryTable.getModel();
         int selectedIndex = CategoryTable.getSelectedRow();
         int id = Integer.parseInt(d1.getValueAt(selectedIndex, 0).toString());
-        String categoryname = txtCategory.getText();
+        String categoryname = txtBrand.getText();
         String status = cmbStatus.getSelectedItem().toString();
 
         try {
-
-            pst = con.prepareStatement("UPDATE  Category SET Category=?,Status=? WHERE Id=?");
+ 
+            pst = con.prepareStatement("UPDATE  Brand SET Brand=?,Status=? WHERE Id=?");
             pst.setString(1, categoryname);
             pst.setString(2, status);
             pst.setInt(3, id);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null, "Record Succesffully updated");
             load_list();
-            txtCategory.setText("");
+            txtBrand.setText("");
             cmbStatus.setSelectedIndex(-1);
 
-            txtCategory.requestFocus();
+            txtBrand.requestFocus();
         } catch (SQLException ex) {
-            Logger.getLogger(Category.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Brands.class.getName()).log(Level.SEVERE, null, ex);
         }
 
 
@@ -332,30 +289,21 @@ public class Category extends javax.swing.JFrame {
 
         if (dialogResult == JOptionPane.YES_OPTION) {
             try {
-    
-                pst = con.prepareStatement("DELETE FROM  Category WHERE Id=?");
+
+                pst = con.prepareStatement("DELETE FROM  Brand WHERE Id=?");
                 pst.setInt(1, id);
                 pst.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Category Deleted");
                 load_list();
-                txtCategory.setText("");
+                txtBrand.setText("");
                 cmbStatus.setSelectedIndex(-1);
             } catch (SQLException ex) {
-                Logger.getLogger(Category.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Brands.class.getName()).log(Level.SEVERE, null, ex);
             }
 
         }
 
     }//GEN-LAST:event_btnDeleteActionPerformed
-
-    private void lblExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseClicked
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_lblExitMouseClicked
-
-    private void btnDelete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelete1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnDelete1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -374,20 +322,21 @@ public class Category extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Category.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Brands.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Category.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Brands.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Category.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Brands.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Category.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Brands.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Category().setVisible(true);
+                new Brands().setVisible(true);
             }
         });
     }
@@ -395,17 +344,14 @@ public class Category extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable CategoryTable;
     private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnDelete1;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JComboBox<String> cmbStatus;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblExit;
-    private javax.swing.JTextField txtCategory;
+    private javax.swing.JTextField txtBrand;
     // End of variables declaration//GEN-END:variables
 }
